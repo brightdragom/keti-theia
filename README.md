@@ -374,7 +374,7 @@ Read below how to engage with Theia community:
 
 배포된 IDE 시스템 구조도
 
-- [hybrid.strato.co.kr/${keti01-04}](http:/${domain}/${keti01-04})/ 로 접속 가능
+- [${domain}/${keti01-04}](http:/$domain/${keti01-04})/ 로 접속 가능
     - Sonicwall을 통한 VPN 설정 후 접속
 
 ![keti01-04 접속 결과](https://github.com/user-attachments/assets/2d0a61e0-801f-47fe-88db-a42e54e121e9)
