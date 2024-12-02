@@ -1,11 +1,8 @@
 <br/>
-<div id="theia-logo" align="center">
-    <br />
-    <img src="https://raw.githubusercontent.com/eclipse-theia/theia/master/logo/theia-logo-gray.svg?sanitize=true" alt="Theia Logo" width="300"/>
-    <h3>Cloud & Desktop IDE Framework</h3>
-</div>
+<h3>Custom Cloud & Desktop IDE Framework based on Theia Ide </h3>
 
-<div id="badges" align="center">
+</br>
+<h3>* Theia IDE 관련 링크</h3>
 
   [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-curved)](https://github.com/eclipse-theia/theia/labels/help%20wanted)
   [![Build Status](https://github.com/eclipse-theia/theia/workflows/Build/badge.svg?branch=master)](https://github.com/eclipse-theia/theia/actions?query=branch%3Amaster+event%3Apush+event%3Aschedule)
@@ -14,6 +11,7 @@
   [![Open bugs](https://img.shields.io/badge/Open-bugs-red.svg?style=flat-curved)](https://github.com/eclipse-theia/theia/labels/bug)
   [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/eclipse-theia/theia)
 
+<!-- 
 Eclipse Theia is an extensible framework to develop full-fledged multi-language Cloud & Desktop IDEs and tools with state-of-the-art web technologies.
 
 </div>
@@ -120,4 +118,4 @@ Read below how to engage with Theia community:
 ## Trademark
 
 "Theia" is a trademark of the Eclipse Foundation
-<https://www.eclipse.org/theia>
+<https://www.eclipse.org/theia> -->
