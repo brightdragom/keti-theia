@@ -30,8 +30,6 @@ import { TerminalService } from '@theia/terminal/lib/browser/base/terminal-servi
 import { FileDialogService } from '@theia/filesystem/lib/browser';
 import { RequestService } from '@theia/core/shared/@theia/request';
 
-import { TerminalWidgetOptions } from '@theia/terminal/lib/browser/base/terminal-widget';
-
 export interface Pipeline {
   duration: string;
   name: string;
@@ -126,21 +124,6 @@ const DockerLogin: Command = {
   label: 'Docker Login'
 };
 
-// const AddNodeandConfigureWorkload: Command = {
-//   id: 'add-node-and-configure-workload',
-//   label: 'Add Node and Configure Workload'
-// };
-
-// const MLPipelineInfoFunc: Command = {
-//   id: 'ml-pipeline-info-func',
-//   label: 'ML Pipeline Info Func'
-// };
-
-// const MLPipelineRunFunc: Command = {
-//   id: 'ml-pipeline-run-func',
-//   label: 'ML Pipeline Run Func'
-// };
-
 const MLPipelineCreateRunFunc: Command = {
   id: 'ml-pipeline-create-run-func',
   label: 'ML Pipeline Create Run Func'
@@ -167,109 +150,10 @@ export class SampleCommandContribution implements CommandContribution {
   @inject(TerminalService) protected readonly terminalService: TerminalService;
   @inject(FileDialogService) protected readonly fileDialogService: FileDialogService;
   @inject(RequestService) protected requestService: RequestService;
-  // @inject(FileResource) protected readonly fileResource: FileResource;
 
   // eslint-disable-next-line @typescript-eslint/tslint/config
   protected readJsonFile(fileUri: URI) {
     return this.fileService.read(fileUri);
-  }
-
-  // eslint-disable-next-line @typescript-eslint/tslint/config
-  protected async parseJsonData(value: string, path: URI) {
-
-    await fetch('http://10.0.2.192:1111/api/v1/yaml', {
-      // mode: 'no-cors',
-      method: 'POST',
-      headers: {
-        'Content-Type': 'text/plain',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-      },
-      body: value
-    }).then(response => {
-      console.log('ok?: ', response.ok);
-      if (!response.ok) {
-        console.log('HTTP error', response.status);
-      } else {
-        const yaml_json = response.json();
-        yaml_json.then(data => {
-          console.log('data: ', data);
-          this.fileService.createFileKetiYaml(JSON.stringify(data), path);
-        });
-      }
-    });
-  }
-
-  // eslint-disable-next-line @typescript-eslint/tslint/config
-  protected logTable(data: { items: { [key: string]: Pipeline } }, options: TerminalWidgetOptions) {
-
-    // const currentTerminal = this.terminalService.currentTerminal;
-    const terminal_test = this.terminalService.lastUsedTerminal;
-    terminal_test?.show();
-
-    // eslint-disable-next-line max-len
-    let log_text = '+------------------------------------------------+--------------------------------------+---------+\n| 파이프라인 이름                                 | 실행 시간                           | 상태     |\n+------------------------------------------------+--------------------------------------+---------+\n';
-
-    for (const key in data.items) {
-      if (data.items.hasOwnProperty(key)) {
-        const item = data.items[key];
-        log_text += '| ' + item.name.padEnd(22) + '\t\t\t | ' + item.duration.padEnd(14) + '\t\t| ' + item.status.padEnd(7) + '  |\n';
-      }
-    }
-
-    log_text += '+------------------------------------------------+----------------+---------+\n';
-    const firstRootUri = this.workspaceService.tryGetRoots()[0]?.resource;
-    const rootUri = firstRootUri.toString().replace('file://', '');
-    if (terminal_test !== undefined) {
-      const logTables: CommandLineOptions = {
-        cwd: rootUri,   // Command실행 경로
-        args: ['echo', log_text],    // 실행될 커멘트를 Arg단위로 쪼개서 삽입
-        env: {}
-      };
-      terminal_test.executeCommand(logTables);
-    }
-  }
-
-  // eslint-disable-next-line @typescript-eslint/tslint/config
-  protected async mlpInfoAPI() {
-    await fetch('http://10.0.2.192:1111/api/v1/info', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      }
-    }).then(response => {
-      // console.log('get ml workload info: ', response.json());
-      response.json().then(data => {
-        console.log('response data: ', data);
-        const firstRootUri = this.workspaceService.tryGetRoots()[0]?.resource;
-        const rootUri = firstRootUri.toString().replace('file://', '');
-        this.logTable(data, { title: 'logtable', cwd: rootUri, env: {}, useServerTitle: false });
-      });
-    });
-  }
-
-  // eslint-disable-next-line @typescript-eslint/tslint/config
-  protected async mlpRunAPI(value: string) {
-    await fetch('http://10.0.2.192:1111/api/v1/run', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: value
-    }).then(response => {
-      console.log('ok?: ', response.ok);
-      if (!response.ok) {
-        console.log('HTTP error', response.status);
-        alert('ML Workload Has Run Successfully!');
-      } else {
-        console.log('HTTP Result: ', response.status, ' _ ', response.statusText);
-        alert('The ML Workload Run Has Failed!');
-      }
-    });
   }
 
   // eslint-disable-next-line @typescript-eslint/tslint/config
@@ -284,9 +168,10 @@ export class SampleCommandContribution implements CommandContribution {
         description: descriptionStr
       }
     });
+
     console.log('Translate result: ' + JSON.stringify(bodyData));
-    await fetch('http://hybrid.strato.co.kr:30121/submit', {
-      // await fetch('http://10.0.2.161:30121/submit', {
+    
+    await fetch('/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -628,58 +513,6 @@ export class SampleCommandContribution implements CommandContribution {
       }
     });
 
-    // commands.registerCommand(AddNodeandConfigureWorkload, {
-    //   execute: () => {
-    //     this.fileDialogService.showOpenDialog({
-    //       title: AddNodeandConfigureWorkload.id, canSelectFiles: true, canSelectFolders: false, canSelectMany: false,
-    //     }).then((selectUri: URI | undefined) => {
-    //       if (selectUri) {
-    //         const readResult = this.readJsonFile(selectUri);
-
-    //         if (readResult !== undefined) {
-    //           readResult.then(json_data => {
-    //             // console.log('readResult type: ', typeof (json_data));
-    //             // console.log('readResult value: ', json_data);
-    //             const firstRootUri = this.workspaceService.tryGetRoots()[0]?.resource;
-    //             const rootUri = firstRootUri.toString().replace('file://', '');
-
-    //             this.parseJsonData(json_data.value, new URI(rootUri + '/ML-Pipeline-Yaml.yaml'));
-    //           });
-    //         } else {
-    //           console.log('Can not read file');
-    //         }
-    //       }
-    //     });
-    //   }
-    // });
-
-    // commands.registerCommand(MLPipelineInfoFunc, {
-    //   execute: () => {
-    //     this.mlpInfoAPI();
-    //   }
-    // });
-
-    // commands.registerCommand(MLPipelineRunFunc, {
-    //   execute: () => {
-    //     this.fileDialogService.showOpenDialog({
-    //       title: AddNodeandConfigureWorkload.id, canSelectFiles: true, canSelectFolders: false, canSelectMany: false,
-    //     }).then((selectUri: URI | undefined) => {
-    //       if (selectUri) {
-    //         const readResult = this.readJsonFile(selectUri);
-
-    //         if (readResult !== undefined) {
-    //           readResult.then(json_data => {
-
-    //             this.mlpRunAPI(json_data.value);
-    //           });
-    //         } else {
-    //           console.log('Can not read file');
-    //         }
-    //       }
-    //     });
-    //   }
-    // });
-
     commands.registerCommand(MLPipelineCreateRunFunc, {
       execute: async () => {
         try {
@@ -717,22 +550,7 @@ export class SampleCommandContribution implements CommandContribution {
           if (metadataUri) {
             const metadataResult = await this.readJsonFile(metadataUri);
             if (metadataResult?.value) {
-              console.log(metadataResult.value.toString()); // 여기까지 됨
-              // const regex = /name:\s*(\d+),\s*value:\s*(\d+)/;
-              // const getData = metadataResult.value.match(regex);
-              // console.log('metadataResult.value.match(regex): ', metadataResult.value.match(regex));
-              // console.log('getData: ', getData);
-
-              // if (getData?.[1] && getData?.[2]) {
-              //   metadata = {
-              //     name: getData[1],
-              //     description: getData[2],
-              //   };
-              //   console.log('Read metadata: ', metadata);
-              // } else {
-              //   console.error('Invalid metadata format');
-              //   return;
-              // }
+              console.log(metadataResult.value.toString()); 
               const lines = metadataResult.value.split('\n'); // 줄바꿈 기준으로 분리
               const nameLine = lines.find(line => line.trim().startsWith('name:'));
               const descriptionLine = lines.find(line => line.trim().startsWith('description:'));
@@ -769,78 +587,6 @@ export class SampleCommandContribution implements CommandContribution {
           console.error('An error occurred:', error);
         }
       }
-      // execute: () => {
-      //   let yamlfile: string | undefined;
-      //   let metadata: { name: string; description: string } | undefined;
-      //   // let metadata: string | undefined;
-      //   this.fileDialogService.showOpenDialog({
-      //     title: AddNodeandConfigureWorkload.id, canSelectFiles: true, canSelectFolders: false, canSelectMany: false,
-      //   }).then((selectUri: URI | undefined) => {
-      //     if (selectUri) {
-      //       const readResult = this.readJsonFile(selectUri);
-
-      //       if (readResult !== undefined) {
-      //         readResult.then(json_data => {
-
-      //           // this.mlpRunAPI(json_data.value);
-      //           // YAML 파일 내용 가져오기
-      //           yamlfile = json_data.value;
-      //         });
-
-      //         console.log('Read yarml file: ' + yamlfile);
-      //       } else {
-      //         console.log('Can not read file');
-      //       }
-      //     }
-      //   });
-
-      //   // metadata: k1: v1\\ k2: v2
-      //   const regex = /name:\s*(\d+),\s*value:\s*(\d+)/;
-
-      //   this.fileDialogService.showOpenDialog({
-      //     title: AddNodeandConfigureWorkload.id, canSelectFiles: true, canSelectFolders: false, canSelectMany: false,
-      //   }).then((selectUri: URI | undefined) => {
-      //     if (selectUri) {
-      //       const readResult = this.readJsonFile(selectUri);
-
-      //       if (readResult !== undefined) {
-      //         readResult.then(json_data => {
-
-      //           console.log(btoa(json_data
-      //             .value.toString())
-      //           );
-      //           const getData = json_data.value.match(regex);
-      //           // eslint-disable-next-line no-null/no-null
-      //           if (getData !== null && getData[1] !== undefined && getData[2] !== undefined) {
-      //             metadata = {
-      //               name: getData[1],
-      //               description: getData[2],
-      //             };
-      //           }
-      //           // this.mlpRunAPI(json_data.value);
-      //           // metadata=json_data.value.name;
-
-      //         });
-
-      //         console.log('Read metadata file: ', metadata);
-      //       } else {
-      //         console.log('Can not read file');
-      //       }
-      //     }
-      //   });
-
-      //   // eslint-disable-next-line eqeqeq
-      //   if (yamlfile == undefined) {
-
-      //     // eslint-disable-next-line eqeqeq
-      //   } else if (metadata == undefined) {
-
-      //   } else {
-      //     // input: base64로 인코딩된 yarml, metadata이름, metadata설명
-      //     this.createRunAPI(yamlfile, metadata.name, metadata.description);
-      //   }
-
-      // }
     });
   }
 }
@@ -872,19 +618,6 @@ export class SampleMenuContribution implements MenuContribution {
       commandId: DockerMenuCommand.id,
       order: '4'
     });
-    // menus.registerMenuAction(subMenuPath, {
-    //   commandId: AddNodeandConfigureWorkload.id,
-    //   order: '6'
-    // });
-    // menus.registerMenuAction(subMenuPath, {
-    //   commandId: MLPipelineInfoFunc.id,
-    //   order: '7'
-    // });
-    // menus.registerMenuAction(subMenuPath, {
-    //   commandId: MLPipelineRunFunc.id,
-    //   order: '8'
-    // });
-
     menus.registerMenuAction(subMenuPath, {
       commandId: MLPipelineCreateRunFunc.id,
       order: '8'
