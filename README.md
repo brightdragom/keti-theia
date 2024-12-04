@@ -125,10 +125,10 @@ Read below how to engage with Theia community:
 
 ## 개발 내용
 
-### 요약
+### 개요
 
-- 요약: 오픈소스 소프트웨어로 제공되는 Theia IDE를 기반으로 통합개발환경 개발 및 구현
-- AI 분야에서 인공지능 모델은 매우 중요한 요소
+- 요약: 오픈소스 소프트웨어로 제공되는 Theia IDE를 기반으로 커스텀 통합개발환경 개발 및 구현
+<!-- - AI 분야에서 인공지능 모델은 매우 중요한 요소
     - 이러한 모델을 학습하는 방법, 과정, 리소스 분배 등 학습을 빠르고 효율적으로 수행하는것이 주요 과제 중 하나
 - 따라서, 인공지능 분야에서 주로 이루어지는 연구는 효율적인 학습의 구조 개발 및 개선, 효율적인 리소스 분배를 통한 모델학습 시간 단축, 다수의 학습데이터 활용하는 Large Language Model 연구 등 다양한 방향의 연구 및 개발이 이루어짐
 - 높은 성능의 DL/ML 모델 개발을 위해서는 학습에 다수의 서버를 활용
@@ -136,7 +136,7 @@ Read below how to engage with Theia community:
         - 이를 해결하기위해 서버를 클러스터로 묶고 클라우드 기반의 중앙화된 관리를 통해 쉽게 관리할 수 있는 연구가 이루어짐
 - 다수의 학습 파라미터를 활용하는 학습의 경우 매우 큰 컴퓨팅 리소스를 요구
     - 즉, 주어진 한정적인 컴퓨팅 리소스 내에서 효율적인 리소스 분배를 통해 모델 학습을 하기위한 연구가 필요
-- 따라서, 위와 같은 문제를 해결하기 위해 클라우드 기반의 효율적인 DL,ML 모델 개발을 위한 통합개발환경에 대해 연구를 진행
+- 따라서, 위와 같은 문제를 해결하기 위해 클라우드 기반의 효율적인 DL,ML 모델 개발을 위한 통합개발환경에 대해 연구를 진행 -->
 
 ### 구현 시스템 구조도
 
@@ -187,9 +187,9 @@ Read below how to engage with Theia community:
     - Docker Login
         - Push 및 Pull을 위한 Docker Login 기능
     - Generate YAML File
-    - (Deleted) Add Node and Configure Workload
+    <!-- - (Deleted) Add Node and Configure Workload
     - (Deleted) ML Pipeline Info Func
-    - (Deleted) ML Pipeline Run Func
+    - (Deleted) ML Pipeline Run Func -->
     - Create Run ML Pipeline
         - ML Pipeline YAML과 metadata YAML을 통해 Workload 생성하는 기능
 
@@ -198,6 +198,14 @@ Read below how to engage with Theia community:
 - 총 3대의 VM을 통해 마스터 노드, 워커노드2개로 구성
 - 워커 노드  중 한개의 노드에 NFS서버로 구축하여, IDE 작업에한 스토리지로 활용
 - Ingress설정을 통해 keti01, keti02, keti03, keti04 네개의 Path를 통해 IDE 접근 구성
+
+## Docker로 실행하기
+
+1. 이미지를 빌드 및 실행:
+   ```bash
+   docker build -t ${image name} -f Dockerfile .
+   docker run --init --rm -p 3000:3000 -v "$(pwd)/workspace:/home/project:cached" -v /var/run/docker.sock:/var/run/docker.sock $1:$2
+    ```
 
 ### 로컬 동작 결과
 
@@ -330,7 +338,7 @@ Read below how to engage with Theia community:
         
         Docker Login 결과 확인
         
-    - ~~Add Node and Configure Workload~~
+    <!-- - ~~Add Node and Configure Workload~~
         - 해당 메뉴는 Generate YAML File 메뉴를 통해 생성된 Python코드를 수정하여 실행한 결과로 생성된 YAML파일을 Workload에 따른 리소스 분배가 완료된 파일로 재변경해주는 메뉴
             
             ![Untitled](https://github.com/user-attachments/assets/ce4fbc30-12b1-456f-a849-077086fe87a0)
@@ -347,7 +355,7 @@ Read below how to engage with Theia community:
             ![Untitled](https://github.com/user-attachments/assets/bbd0ea5b-d6dc-4453-bd0b-003ae11ca8df)
             
     - ~~ML Pipeline Run Func~~
-        - Add Node and Configure Workload메뉴를 통해 생성된 Yaml 파일을 기반으로 ML Pipeline을 생성해주는 메뉴
+        - Add Node and Configure Workload메뉴를 통해 생성된 Yaml 파일을 기반으로 ML Pipeline을 생성해주는 메뉴 -->
         
     - Create Run ML Pipeline
         - PMS의 Create Run과 동일한 기능을 수행

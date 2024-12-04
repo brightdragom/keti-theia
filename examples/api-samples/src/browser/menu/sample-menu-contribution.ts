@@ -171,7 +171,7 @@ export class SampleCommandContribution implements CommandContribution {
 
     console.log('Translate result: ' + JSON.stringify(bodyData));
     
-    await fetch('/submit', {
+    await fetch('http://hybrid.strato.co.kr:30121/submit', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

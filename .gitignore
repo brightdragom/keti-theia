@@ -45,3 +45,4 @@ remove-dockerstorage.sh
 run.sh
 Dockerfile*
 ./examples/api-samples/src/browser/menu/sample-menu-contribution-back.ts
+./.gitignore
