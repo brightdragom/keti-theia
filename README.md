@@ -300,8 +300,8 @@ Read below how to engage with Theia community:
 
 2. 이미지를 빌드 및 실행:
    ```bash
-   docker build -t ${image name} -f Dockerfile .
-   docker run --init --rm -p 3000:3000 -v "$(pwd)/workspace:/home/project:cached" -v /var/run/docker.sock:/var/run/docker.sock $1:$2
+   docker build -t ${image name}:${image tag} -f Dockerfile .
+   docker run --init --rm -p 3000:3000 -v "$(pwd)/workspace:/home/project:cached" -v /var/run/docker.sock:/var/run/docker.sock ${image name}:${image tag}
     ```
 
 ### 로컬 동작 결과
