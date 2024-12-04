@@ -1,126 +1,3 @@
-<br/>
-<h3> </h3>
-
-</br>
-<!-- <h3>* Theia IDE 관련 링크</h3>
-
-  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-curved)](https://github.com/eclipse-theia/theia/labels/help%20wanted)
-  [![Build Status](https://github.com/eclipse-theia/theia/workflows/Build/badge.svg?branch=master)](https://github.com/eclipse-theia/theia/actions?query=branch%3Amaster+event%3Apush+event%3Aschedule)
-  [![Publish VS Code Built-in Extensions](https://github.com/eclipse-theia/vscode-builtin-extensions/actions/workflows/publish-vsx-latest.yml/badge.svg?branch=master)](https://github.com/eclipse-theia/vscode-builtin-extensions/actions/workflows/publish-vsx-latest.yml)
-  [![Open questions](https://img.shields.io/badge/Open-questions-blue.svg?style=flat-curved)](https://github.com/eclipse-theia/theia/discussions/categories/q-a)
-  [![Open bugs](https://img.shields.io/badge/Open-bugs-red.svg?style=flat-curved)](https://github.com/eclipse-theia/theia/labels/bug)
-  [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/eclipse-theia/theia) -->
-
-<!-- 
-Eclipse Theia is an extensible framework to develop full-fledged multi-language Cloud & Desktop IDEs and tools with state-of-the-art web technologies.
-
-</div>
-
-- [Website](#website)
-- [Repositories](#repositories)
-- [Releases](#releases)
-- [Scope](#scope)
-- [Roadmap](#roadmap)
-- [Getting Started](#getting-started)
-- [Contributing](#contributing)
-- [Feedback](#feedback)
-- [Documentation](#documentation)
-- [License](#license)
-- [Trademark](#trademark)
-
-<div style='margin:0 auto;width:60%;'>
-
-![Theia](https://raw.githubusercontent.com/eclipse-theia/theia/master/doc/images/theia-screenshot.png)
-
-</div>
-
-## Website
-
-[Visit the Eclipse Theia website](http://www.theia-ide.org) for more information and [the Theia documentation](http://www.theia-ide.org/doc).
-
-## Repositories
-This is the main repository for the Eclipse Theia project, containing the sources of the Theia Platform. Please open generic discussions, bug reports and feature requests about Theia on this repository. The Theia project also includes additional repositories, e.g. for the [artifacts building the Theia IDE](https://github.com/eclipse-theia/theia-blueprint) and the [Theia website](https://github.com/eclipse-theia/theia-website). Please also see the [overview of all Theia project repositories](https://github.com/eclipse-theia).
-
-## Releases
-
-- [All available releases](https://github.com/eclipse-theia/theia/releases) are available on GitHub including changelogs.
-- [Detailed release announcements](https://theia-ide.org/resources/) are linked on the Theia website.
-- [Community Releases](https://theia-ide.org/releases/) are listed on the Theia website.
-- [Visit the release website](https://theia-ide.org/releases/) for more information.
-
-## Scope
-
-- Support building browser-based and desktop IDEs and tools
-- Provide a highly flexible architecture for adopters
-- Support VS Code Extension protocol
-- Develop under vendor-neutral open-source governance
-
-[More details on the project goals](https://theia-ide.org/docs/project_goals/) are available on the Theia website.
-
-## Roadmap
-
-See [our roadmap](https://github.com/eclipse-theia/theia/wiki/Eclipse-Theia-Roadmap) for an overview about the current project goals and the upcoming releases.
-
-## Getting Started
-
-Here you can find guides and examples for common scenarios to adopt Theia:
-
-- [Get an overview of how to get started](https://theia-ide.org/#gettingstarted) on the Theia website
-- [Develop a Theia application - your own IDE/Tool](https://www.theia-ide.org/doc/Composing_Applications.html)
-- [Learn about Theia's extension mechanisms](https://theia-ide.org/docs/extensions/)
-- [Develop a VS Code like extension](https://theia-ide.org/docs/authoring_vscode_extensions/)
-- [Develop a Theia extension](http://www.theia-ide.org/doc/Authoring_Extensions.html)
-- [Test a VS Code extension in Theia](https://github.com/eclipse-theia/theia/wiki/Testing-VS-Code-extensions)
-- [Package a desktop Theia application with Electron](https://theia-ide.org/docs/blueprint_documentation/)
-
-## Contributing
-
-Read below to learn how to take part in improving Theia:
-
-- Fork the repository and [run the examples from source](doc/Developing.md#quick-start)
-- Get familiar with [the development workflow](doc/Developing.md), [Coding Guidelines](doc/coding-guidelines.md), [Code of Conduct](CODE_OF_CONDUCT.md) and [sign the Eclipse contributor agreement](CONTRIBUTING.md#eclipse-contributor-agreement)
-- Find an issue to work on and submit a pull request
-  - First time contributing to open source? Pick a [good first issue](https://github.com/eclipse-theia/theia/labels/good%20first%20issue) to get you familiar with GitHub contributing process.
-  - First time contributing to Theia? Pick a [beginner friendly issue](https://github.com/eclipse-theia/theia/labels/beginners) to get you familiar with codebase and our contributing process.
-  - Want to become a Committer? Solve an issue showing that you understand Theia objectives and architecture. [Here](https://github.com/eclipse-theia/theia/labels/help%20wanted) is a good list to start. Further, have a look at our [roadmap](https://github.com/eclipse-theia/theia/wiki/Roadmap) to align your contributions with the current project goals.
-- Could not find an issue? Look for bugs, typos, and missing features.
-
-## Feedback
-
-Read below how to engage with Theia community:
-
-- Join the discussion on [GitHub](https://github.com/eclipse-theia/theia/discussions).
-- Ask a question, request a new feature and file a bug with [GitHub issues](https://github.com/eclipse-theia/theia/issues/new/choose).
-- Vote on existing GitHub issues by reacting with a 👍. We regularly check issues with votes!
-- Star the repository to show your support.
-- Follow Theia on [Twitter](https://twitter.com/theia_ide).
-- Join the [weekly developer call](https://github.com/eclipse-theia/theia/wiki/Dev-Meetings)
-
-## Documentation
-
-- [API Documentation](https://eclipse-theia.github.io/theia/docs/next/index.html)
-- [General Documentation](https://theia-ide.org/docs/)
-- [VS Code API Compatibility Report](https://eclipse-theia.github.io/vscode-theia-comparator/status.html)
-- Useful Links:
-  - [Developing](doc/Developing.md)
-  - [Testing](doc/Testing.md)
-  - [Migration Guide](doc/Migration.md)
-  - [API Integration Testing](doc/api-testing.md)
-  - [Coding Guidelines](doc/coding-guidelines.md)
-  - [Code Organization](doc/code-organization.md)
-  - [Plugin and VSCode API](doc/Plugin-API.md)
-
-## License
-
-- [Eclipse Public License 2.0](LICENSE-EPL)
-- [一 (Secondary) GNU General Public License, version 2 with the GNU Classpath Exception](LICENSE-GPL-W-CLASSPATH-EXCEPTION)
-
-## Trademark
-
-"Theia" is a trademark of the Eclipse Foundation
-<https://www.eclipse.org/theia> -->
-
-
 # Custom Cloud & Desktop IDE Framework based on Theia Ide
 
 ## 개발 내용
@@ -201,7 +78,104 @@ Read below how to engage with Theia community:
 
 ## Docker로 실행하기
 
-1. 이미지를 빌드 및 실행:
+1. Dockerfile 생성:
+    ```Dockerfile
+   # Builder stage
+    FROM node:20-bullseye AS build-stage
+
+    # Update apt sources to use HTTPS
+    RUN sed -i 's|http|https|g' /etc/apt/sources.list
+
+    # Install required tools to build the application
+    RUN apt-get update && apt-get install -y \
+        libxkbfile-dev \
+        libsecret-1-dev
+
+    WORKDIR /home/theia/workspace
+
+    # Copy repository files
+    COPY . .
+
+    # Build and clean the application
+    RUN yarn --pure-lockfile && \
+        yarn build && \
+        yarn download:plugins && \
+        yarn browser build && \
+        yarn --production && \
+        yarn autoclean --init && \
+        echo '*.ts' >> .yarnclean && \
+        echo '*.ts.map' >> .yarnclean && \
+        echo '*.spec.*' >> .yarnclean && \
+        yarn autoclean --force && \
+        yarn cache clean
+
+    # Production stage
+    FROM node:20-bullseye
+
+    # Update apt sources to use HTTPS
+    RUN sed -i 's|http|https|g' /etc/apt/sources.list
+
+    # Install required tools for the production application
+    RUN apt-get update && apt-get install -y \
+        wget \
+        apt-transport-https \
+        git \
+        openssh-client \
+        openssh-server \
+        bash \
+        libsecret-1-0 \
+        openjdk-11-jdk \
+        golang \
+        python3 \
+        python3-pip \
+        maven && \
+        pip3 install --upgrade pip && \
+        pip3 install pylint autopep8 && \
+        wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /usr/share/keyrings/adoptium.asc && \
+        echo "deb [signed-by=/usr/share/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list && \
+        apt-get update && \
+        apt-get install -y temurin-17-jdk && \
+        apt-get purge -y wget && \
+        apt-get clean && \
+        rm -rf /var/lib/apt/lists/*
+        
+    RUN mkdir -m 0755 -p /etc/apt/keyrings && \
+        curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg && \
+        echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+    RUN apt-get update && \
+        apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    # Create application directories
+    RUN adduser --system --group theia && \
+        mkdir -p /home/theia /home/project && \
+        chown -R theia:theia /home/theia /home/project
+
+    # Set working directory
+    WORKDIR /home/theia/workspace
+
+    # Copy application files from the builder stage
+    COPY --from=build-stage --chown=theia:theia /home/theia /home/theia
+
+    # Set environment variables
+    ENV HOME=/home/theia/workspace \
+        SHELL=/bin/bash \
+        THEIA_DEFAULT_PLUGINS=local-dir:/home/theia/plugins \
+        USE_LOCAL_GIT=true
+
+    # Expose application port
+    EXPOSE 3000
+
+    # Set permissions and switch to Theia user
+    USER theia
+    WORKDIR /home/theia/examples/browser
+
+    # Launch the backend application
+    ENTRYPOINT [ "node", "/home/theia/examples/browser/lib/backend/main.js" ]
+    CMD [ "/home/theia/workspace", "--hostname=0.0.0.0" ]
+
+    ```
+
+2. 이미지를 빌드 및 실행:
    ```bash
    docker build -t ${image name} -f Dockerfile .
    docker run --init --rm -p 3000:3000 -v "$(pwd)/workspace:/home/project:cached" -v /var/run/docker.sock:/var/run/docker.sock $1:$2
